@@ -1,12 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import reducers from './reducers'
+import App from './components/App'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Passo 4 - Chamar { Provider } do react-redux e createStore do Redux
+ReactDOM.render(
+// Passo 05 - Cercar a instância do App Component com o Provider, do react-redux
+<Provider store={createStore(reducers)}>
+<App />
+
+</Provider>,
+document.querySelector('#root')
+
+)
+
+/*
+Nota: Cercar o <App /> com <Provider> faz-se necessário
+para que o Redux "distribua" os elementos do State entre 
+os componentes.
+*/
