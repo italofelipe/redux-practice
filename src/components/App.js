@@ -5,9 +5,15 @@ import SongList from './SongList'
 
 const App = () => {
     return (
-        <div>
+        <div className="ui container grid">
+            <div className="ui row">
+                <div className="column eight wide">
+                    <SongList />
+                    
+                </div>
+
+            </div>
             
-            <SongList />
         </div>
     )
 }
